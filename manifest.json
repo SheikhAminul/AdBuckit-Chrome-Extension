@@ -24,6 +24,8 @@
             "js": ["js/getFacebookAds.js"]
         }
     ],
-
+    "web_accessible_resources": [
+        "js/catchAdLinks.js*"
+    ],
     "homepage_url": "http://adbuck.it"
 }
