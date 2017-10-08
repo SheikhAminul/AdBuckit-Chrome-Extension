@@ -20,6 +20,11 @@
 
     "content_scripts": [
         {
+            "matches": ["http://*/*", "http://*/*"],
+            "js": ["js/jquery-1.9.1.min.js"],
+            "all_frames": true
+	    },
+        {
             "matches": ["https://*.facebook.com/*"],
             "js": ["js/getFacebookAds.js"]
         }
