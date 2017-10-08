@@ -10,9 +10,7 @@
         "128": "images/icon_128.png"
     },
 
-    "permissions": [
-       "http://*/" , "https://*/" , "tabs", "background"
-    ],
+    "permissions": ["http://*/*", "https://*/*", "tabs", "background"],
 
     "background": {
         "scripts": ["js/jquery-1.9.1.min.js", "js/background.js"]
