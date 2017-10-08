@@ -1,3 +1,21 @@
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+	if (changeInfo.status != 'complete') return;
+	if (tab.url.indexOf('chrome://') == -1) {
+		function catchAds() {
+			var ScriptFile = chrome.extension.getURL("js/catchAdLinks.js");
+			chrome.tabs.executeScript(tabId, {
+				allFrames: true,
+				runAt : "document_idle",
+				code: "if (!document.querySelector(\"[CEScript]\")) { var Scrpit = document.createElement(\"script\"); Scrpit.setAttribute(\"CEScript\", 1); Scrpit.src = \"" + ScriptFile + "\"; document.body.appendChild(Scrpit); }"
+			});
+		}
+		setTimeout(catchAds, 1250);
+		setTimeout(catchAds, 2500);
+		setTimeout(catchAds, 5000);
+		setTimeout(catchAds, 10000);
+	}
+});
+
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo) {
     var UpdatedTabId = tabId;
     chrome.tabs.query({
@@ -18,12 +36,12 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo) {
                 file: "js/ads.js",
             });
 
-            if (tab.url.search("facebook.com") == -1 ) {
+            /*if (tab.url.search("facebook.com") == -1 ) {
                 chrome.tabs.executeScript(tab.id, {
                     allFrames: true,
                     file: "js/getBannerAds.js"
                 });
-            }
+            }*/
 
             
             
